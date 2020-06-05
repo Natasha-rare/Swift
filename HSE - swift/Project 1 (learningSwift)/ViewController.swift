@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var ConvertedLabel: UILabel!
     @IBOutlet weak var ValueLabel: UILabel!
     
+    @IBOutlet weak var ErrorLabel: UILabel!
     
     @IBOutlet var Values2: [UIButton]!
     @IBOutlet var Values1: [UIButton]!
@@ -35,43 +36,54 @@ class ViewController: UIViewController {
         ConvertedLabel.text = convert
     }
     
+    //Проверяем корректность входных данных
+    func isFloat(text:String) -> Bool {
+        guard let _ = Float(text) else { return false }
+        return true
+    }
     
     @IBAction func Run(_ sender: UIButton) {
+        ErrorLabel.text = ""
         convert = value.text ?? "1" // По умолчанию будем конвектировать 1
-        if (order){
-            answer = Float(convert)! * Course[ValueLabel.text!]! / Course[ConvertedLabel.text!]!
+        if (isFloat(text: convert)){
+            if (order){
+                answer = Float(convert)! * Course[ValueLabel.text!]! / Course[ConvertedLabel.text!]!
+            }
+            else{
+                answer = Float(convert)! * Course[ValueLabel.text!]! / Course[ConvertedLabel.text!]!
+            }
+            converted.text = String(answer)
         }
         else{
-            answer = Float(convert)! * Course[ValueLabel.text!]! / Course[ConvertedLabel.text!]!
+            ErrorLabel.text = "Введите число!!!"
         }
-        converted.text = String(answer)
+    }
+    
+    // Скрываем/раскрываем выпадающий список
+    func Hide(buttons: [UIButton]){
+        for button in buttons{
+            UIView.animate(withDuration: 0.3, animations: {
+                button.isHidden = !button.isHidden
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
     @IBAction func Value2(_ sender: UIButton) {
-        for button in Values2{
-            UIView.animate(withDuration: 0.3, animations: {
-                button.isHidden = !button.isHidden
-                self.view.layoutIfNeeded()
-            })
-            
-        }
+        Hide(buttons: Values2)
     }
     
+    
+    
     @IBAction func Value1(_ sender: UIButton) {
-        for button in Values1{
-            UIView.animate(withDuration: 0.3, animations: {
-                button.isHidden = !button.isHidden
-                self.view.layoutIfNeeded()
-            })
-            
-        }
+        Hide(buttons: Values1)
     }
     
     @IBAction func Value1Tap(_ sender: UIButton) {
         guard let value_to_convert = sender.currentTitle else{
             return
         }
-        
+        Hide(buttons: Values1)
         ValueLabel.text = value_to_convert
     }
     
@@ -79,6 +91,7 @@ class ViewController: UIViewController {
         guard let converted_value = sender.currentTitle else{
             return
         }
+        Hide(buttons: Values2)
         
         ConvertedLabel.text = converted_value
     }

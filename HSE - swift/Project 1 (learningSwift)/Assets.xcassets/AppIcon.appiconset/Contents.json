@@ -1,11 +1,13 @@
 {
   "images" : [
     {
+      "filename" : "иконка-2.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "иконка.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -21,16 +23,19 @@
       "size" : "29x29"
     },
     {
+      "filename" : "иконка-5.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "иконка-7.jpg",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+      "filename" : "иконка-8.jpg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
@@ -46,6 +51,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "иконка-3.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
@@ -61,11 +67,13 @@
       "size" : "29x29"
     },
     {
+      "filename" : "иконка-4.jpg",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
+      "filename" : "иконка-6.jpg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
@@ -86,6 +94,7 @@
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "иконка-1.jpg",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
