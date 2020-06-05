@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    
+    
     let dollarCourse: Float = 74
     var answer: Float = 0
     var convert: String = ""
@@ -20,6 +22,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var value: UITextField!
     @IBOutlet weak var converted: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        value.delegate = self
+    }
     
     @IBOutlet weak var ConvertedLabel: UILabel!
     @IBOutlet weak var ValueLabel: UILabel!
@@ -39,6 +45,11 @@ class ViewController: UIViewController {
     //Проверяем корректность входных данных
     func isFloat(text:String) -> Bool {
         guard let _ = Float(text) else { return false }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
