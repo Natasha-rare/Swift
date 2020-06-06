@@ -1,2 +1,4 @@
 # Swift
-For learning Swift
+HSE-summerskhool-project
+
+©Natasha Avtuhovich 2020
